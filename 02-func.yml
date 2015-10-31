@@ -31,8 +31,10 @@
 - sum:
   - function: [{xs: [int]}]
     returns: int
-  - if: $xs.length = 0
-    then: 0
-    else: {$xs.first +: {sum: $xs.rest}}
+  - s:
+    - var: {int: 0}
+  - for: xs
+    as: x
+    do: { s +=: $x }
 
 - sum: [1, 2, 3, 4, 5]
