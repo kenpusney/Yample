@@ -1,0 +1,9 @@
+.DS_Store
+*.obj
+*.o
+*.a
+*.lib
+*.class
+*.pyc
+out/
+build/

@@ -1,0 +1,8 @@
+---
+- import:
+  - data.text
+  - {qualified: data.collections, as: collect}
+  
+- append: ["I have a", " dream"]
+
+- collect.length: [1, 2, 3]

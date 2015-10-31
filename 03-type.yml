@@ -1,0 +1,17 @@
+---
+- Person:
+    - type:
+        name: string
+        age: int
+    - new:
+        - function: [name, age]
+        - $this.name = $name
+        - $this.age = $age
+    - say:
+        - function: [words]
+        - print: $this.name said $words
+        
+- kimmy:
+    - var: {Person: ["kimmy", 17]}
+    
+- kimmy.say: "hello world!"

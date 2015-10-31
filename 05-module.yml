@@ -1,0 +1,15 @@
+---
+- module: ModuleA
+  exports: [a]
+  where:
+    - import:
+      - data.text
+    - a:
+      - alias: append
+
+- module: ModuleB
+  where:
+    - import:
+      - ModuleA: [a]
+    
+    - a: ["a", "b"]
