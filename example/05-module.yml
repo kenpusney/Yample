@@ -1,14 +1,16 @@
 ---
-- module: ModuleA
-  exports: [a]
-  where:
+- module:
+  - ModuleA
+  - exports: [a]
+  - where:
     - import:
       - data.text
     - a:
       - alias: append
 
-- module: ModuleB
-  where:
+- module:
+  - ModuleB
+  - where:
     - import:
       - ModuleA: [a]
     

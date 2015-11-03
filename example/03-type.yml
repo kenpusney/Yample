@@ -1,0 +1,19 @@
+---
+- type:
+    - Person:
+        name: String
+        age: Int
+
+- impl:
+    - Person.new: [{name: String}, {age: Int}]
+    - $this.name = $name
+    - $this.age = $age
+    
+- impl:
+    - Person.say: [{words: String}, Unit]
+    - print: $this.name said $words!
+
+
+- var: {kimmy: {Person: ["kimmy", 17]}}
+
+- kimmy.say: "hello world!"
