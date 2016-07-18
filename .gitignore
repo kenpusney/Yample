@@ -7,3 +7,5 @@
 *.pyc
 out/
 build/
+.gradle/
+.idea/

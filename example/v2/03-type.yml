@@ -1,0 +1,17 @@
+---
+- decl: struct
+  name: Person
+  with:
+    - {name: name, type: String}
+    - {name: age, type: Int}
+
+- decl: struct
+  name: Cell
+  params:
+    - {name: T}
+  with:
+    - {name: content, type: T}
+
+- decl: alias
+  use: IntCell
+  as: Cell<Int>
