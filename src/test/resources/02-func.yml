@@ -1,0 +1,34 @@
+---
+- decl: fun
+  name: hello
+  params: [target]
+  actions:
+    - apply: fun
+      name: print
+      args: [{apply: value, value: "Hello $target"}]
+
+- decl: fun
+  name: fact
+  params: [n]
+  actions:
+    - apply: cond
+      when: {apply: fun, name: greater, args: [{apply: var, name: n}, {apply: value, value: 0}]}
+      # or simply "then: {apply: expr, expr: $n * fact($n - 1)}"
+      then:
+        apply: fun
+        name: multiply
+        args:
+          - {apply: var, name: n}
+          - apply: fun
+            name: fact
+            args: [{apply: fun, name: minus, args:[{apply: var, name: n}, {apply: value, value: 1}]}]
+      else: {apply: value, value: 0}
+
+- decl: main
+  action:
+    apply: fun
+    name: hello
+    args:
+      - apply: value
+        value: "world"
+

@@ -1,0 +1,6 @@
+---
+- decl: main
+  action:
+    apply: fun
+    name: print
+    args: [{apply: value, value: "hello world"}]
