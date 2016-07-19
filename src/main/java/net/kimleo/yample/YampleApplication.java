@@ -9,16 +9,16 @@ import java.io.*;
 
 public class YampleApplication {
 
-    private final YampleCompiler yampleCompiler;
+    private final Compiler compiler;
 
-    public YampleApplication(YampleCompiler yampleCompiler) {
-        this.yampleCompiler = yampleCompiler;
+    public YampleApplication(Compiler compiler) {
+        this.compiler = compiler;
     }
 
     public static void main(String[] args) {
         final ObjectMapper inputMapper = new ObjectMapper(new YAMLFactory());
         final ObjectMapper outputMapper = new ObjectMapper(new JsonFactory());
-        YampleCompiler compiler = new YampleCompiler(inputMapper, outputMapper);
+        Compiler compiler = new Compiler(inputMapper, outputMapper);
         YampleApplication application = new YampleApplication(compiler);
         application.run(args);
     }
@@ -33,7 +33,7 @@ public class YampleApplication {
                 System.out.println("Error: File not exists!");
             } else {
                 String source = Resources.getFileContent(file);
-                yampleCompiler.compile(source);
+                System.out.println(compiler.convert(source));
             }
         }
     }
